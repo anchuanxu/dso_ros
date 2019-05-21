@@ -12,7 +12,7 @@ set(ROS_BUILD_TYPE Release)
 
 rosbuild_init()
 
-set(EXECUTABLE_OUTPUT_PATH bin)
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
 
 set(DSO_PATH $ENV{DSO_PATH})
@@ -51,6 +51,6 @@ include_directories(
 )  
 
 rosbuild_add_executable(dso_live src/main.cpp ${SOURCE_FILES})
-target_link_libraries(dso_live ${DSO_LIBRARY} ${Pangolin_LIBRARIES} ${OpenCV_LIBS})
+target_link_libraries(dso_live ${DSO_LIBRARY} ${Pangolin_LIBRARIES} ${OpenCV_LIBS} GL glut GLU boost_system)
 rosbuild_link_boost(dso_live thread)
 
